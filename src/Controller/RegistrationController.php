@@ -55,8 +55,8 @@ class RegistrationController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
-
-            return $this->redirectToRoute('app_login');
+            return new Response(json_encode(['registration'=>'access']));
+            //return $this->redirectToRoute('app_login');
         }elseif($form->isSubmitted() && !$form->isValid()){
           $error  = ['error'=>$this->getErrorMessages( $form )];
           return new Response( json_encode($error) );
