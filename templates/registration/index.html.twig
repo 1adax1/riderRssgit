@@ -69,6 +69,8 @@ $('form').submit(function(event) {
           }else{
             $('#password').html('').hide();
           }
+        }else if(error['registration']=="access"){
+          window.location.href = '/list';
         }
      });
      },
